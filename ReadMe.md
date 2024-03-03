@@ -40,7 +40,7 @@ app.secret_key = os.urandom(24)
 db = mysql.connector.connect(
     host="localhost",
     user="nitesh",
-    password="root@123",
+    password="password",
     database="stocks"
 )
 ```
