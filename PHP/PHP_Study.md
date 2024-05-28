@@ -132,7 +132,7 @@ for ($i = 0; $i < 5; $i++) {
 }
 ```
 
-## 4. `foreach` Loop
+### 4. `foreach` Loop
 
 The `foreach` loop is specifically designed for iterating over arrays. It is a convenient way to access each element in an array without needing to manage the array's length or index manually.
 
