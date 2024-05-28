@@ -68,3 +68,335 @@ echo 'This will not be displayed if config.php is not found.';
 ```
 
 In the example above, if `header.php` is missing, a warning will be shown, but "This will be displayed even if header.php is not found." will still be printed. Conversely, if `config.php` is missing, a fatal error occurs and "This will not be displayed if config.php is not found." will not be printed.
+
+<br><br>
+
+### 3. Explain different loops used in PHP in detail.
+PHP provides several types of loops to perform repetitive tasks efficiently. Each type of loop is used in different scenarios based on the requirements. Here's a detailed explanation of the different loops available in PHP:
+
+### 1. `while` Loop
+
+The `while` loop executes a block of code as long as the specified condition is true. It is typically used when the number of iterations is not known beforehand.
+
+#### Syntax:
+```php
+while (condition) {
+    // Code to be executed
+}
+```
+
+#### Example:
+```php
+$i = 0;
+while ($i < 5) {
+    echo "The value of i is: $i\n";
+    $i++;
+}
+```
+
+### 2. `do-while` Loop
+
+The `do-while` loop is similar to the `while` loop, but it guarantees that the block of code is executed at least once. This is because the condition is checked after the block of code is executed.
+
+#### Syntax:
+```php
+do {
+    // Code to be executed
+} while (condition);
+```
+
+#### Example:
+```php
+$i = 0;
+do {
+    echo "The value of i is: $i\n";
+    $i++;
+} while ($i < 5);
+```
+
+### 3. `for` Loop
+
+The `for` loop is used when the number of iterations is known beforehand. It consists of three parts: initialization, condition, and increment/decrement.
+
+#### Syntax:
+```php
+for (initialization; condition; increment) {
+    // Code to be executed
+}
+```
+
+#### Example:
+```php
+for ($i = 0; $i < 5; $i++) {
+    echo "The value of i is: $i\n";
+}
+```
+
+### 4. `foreach` Loop
+
+The `foreach` loop is specifically designed for iterating over arrays. It is a convenient way to access each element in an array without needing to manage the array's length or index manually.
+
+#### Syntax:
+```php
+foreach ($array as $value) {
+    // Code to be executed
+}
+```
+For associative arrays, you can use:
+```php
+foreach ($array as $key => $value) {
+    // Code to be executed
+}
+```
+
+#### Example:
+```php
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $color) {
+    echo "The color is: $color\n";
+}
+
+// Associative array example
+$age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
+
+foreach ($age as $name => $age) {
+    echo "$name is $age years old.\n";
+}
+```
+
+### Comparison and Use Cases
+
+1. **`while` Loop**:
+   - **Use Case**: When you need to repeat a block of code while a condition remains true and the number of iterations is not known.
+   - **Example**: Reading data from a file until the end of the file is reached.
+
+2. **`do-while` Loop**:
+   - **Use Case**: When you need to ensure that a block of code is executed at least once regardless of the condition.
+   - **Example**: Displaying a menu at least once and asking for user input.
+
+3. **`for` Loop**:
+   - **Use Case**: When you know the exact number of iterations.
+   - **Example**: Iterating over a range of numbers, like looping from 1 to 100.
+
+4. **`foreach` Loop**:
+   - **Use Case**: When you need to iterate over each element in an array or associative array.
+   - **Example**: Accessing and processing each item in a list of user data.
+
+### Practical Considerations
+
+- **Performance**: `foreach` is generally faster than `for` when iterating over arrays because it is optimized for this purpose.
+- **Readability**: `foreach` is often more readable and simpler to use for arrays, especially associative arrays.
+- **Flexibility**: `while` and `do-while` provide more flexibility in terms of loop control and are not limited to arrays.
+
+Understanding these loops and when to use them is crucial for efficient and readable PHP programming. Each loop serves a particular purpose and selecting the appropriate one can significantly affect the clarity and performance of your code.
+
+<br><br>
+###  3. How can we create links in PHP pages?
+
+Creating links in PHP pages is straightforward and involves embedding HTML anchor (`<a>`) tags within your PHP code. The HTML anchor tag is used to create hyperlinks that navigate to other pages or resources. Here are several methods to create links in PHP:
+
+### 1. **Basic Static Link**
+A simple static link can be included directly in the HTML code within a PHP file.
+
+#### Example:
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static Link Example</title>
+</head>
+<body>
+    <a href="https://www.example.com">Visit Example.com</a>
+</body>
+</html>
+```
+
+### 2. **Dynamic Links Using PHP Variables**
+You can use PHP variables to dynamically create links.
+
+#### Example:
+```php
+<?php
+$page = "contact.php";
+$text = "Contact Us";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Link Example</title>
+</head>
+<body>
+    <a href="<?php echo $page; ?>"><?php echo $text; ?></a>
+</body>
+</html>
+```
+
+### 3. **Generating Links Based on Conditions**
+You can create links dynamically based on certain conditions or logic.
+
+#### Example:
+```php
+<?php
+$is_logged_in = true;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Link Example</title>
+</head>
+<body>
+    <?php if ($is_logged_in): ?>
+        <a href="logout.php">Logout</a>
+    <?php else: ?>
+        <a href="login.php">Login</a>
+    <?php endif; ?>
+</body>
+</html>
+```
+
+### 4. **Links with Query Parameters**
+You can create links with query parameters to pass information between pages.
+
+#### Example:
+```php
+<?php
+$user_id = 42;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link with Query Parameters Example</title>
+</head>
+<body>
+    <a href="profile.php?id=<?php echo $user_id; ?>">View Profile</a>
+</body>
+</html>
+```
+
+### 5. **Using Functions to Generate Links**
+For more complex applications, you might want to use functions to generate links.
+
+#### Example:
+```php
+<?php
+function createLink($url, $text) {
+    return '<a href="' . $url . '">' . $text . '</a>';
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Function Example</title>
+</head>
+<body>
+    <?php echo createLink('https://www.example.com', 'Visit Example.com'); ?>
+</body>
+</html>
+```
+
+### Summary
+
+Creating links in PHP pages is essentially about embedding HTML anchor tags within your PHP code. Depending on the complexity and dynamic nature of your application, you can:
+
+1. **Include static links directly in HTML.**
+2. **Use PHP variables to dynamically generate links.**
+3. **Create conditional links based on application logic.**
+4. **Pass data between pages using query parameters.**
+5. **Encapsulate link generation in reusable functions.**
+
+These methods allow you to create flexible and dynamic navigation options in your PHP applications.
+
+<br><br>
+### 5.  Create HTML form to enter one number. Write PHP code to display the message about number is odd or even.
+
+Creating an HTML form to enter a number and then writing PHP code to determine whether the number is odd or even involves two main parts: the HTML form and the PHP script to process the form data.
+
+### HTML Form
+
+First, create an HTML form that allows the user to input a number:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Odd or Even Checker</title>
+</head>
+<body>
+    <form action="check_number.php" method="post">
+        <label for="number">Enter a number:</label>
+        <input type="number" id="number" name="number" required>
+        <input type="submit" value="Check">
+    </form>
+</body>
+</html>
+```
+
+### PHP Script
+
+Next, create the `check_number.php` file to handle the form submission and determine if the number is odd or even:
+
+```php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the number from the form
+    $number = $_POST['number'];
+
+    // Check if the number is odd or even
+    if ($number % 2 == 0) {
+        $message = "The number $number is even.";
+    } else {
+        $message = "The number $number is odd.";
+    }
+} else {
+    $message = "Please submit the form with a number.";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Odd or Even Result</title>
+</head>
+<body>
+    <h1><?php echo $message; ?></h1>
+    <a href="index.html">Go back</a>
+</body>
+</html>
+```
+
+### Explanation
+
+1. **HTML Form (`index.html`)**:
+    - This form has a single input field for the user to enter a number and a submit button.
+    - The form uses the POST method to send data to `check_number.php` for processing.
+
+2. **PHP Script (`check_number.php`)**:
+    - The script first checks if the form has been submitted by verifying the request method.
+    - It retrieves the number from the POST data.
+    - It then determines if the number is odd or even using the modulus operator (`%`).
+    - A message is generated based on the result.
+    - The message is displayed to the user, and there is a link to go back to the form.
+
+### Folder Structure
+
+Ensure the HTML file and PHP file are in the same directory or adjust the form action accordingly. The typical folder structure might look like this:
+
+```
+/your-project-folder
+    index.html
+    check_number.php
+```
+
+With this setup, when a user enters a number in the form and submits it, they will be redirected to the `check_number.php` page, where they will see a message indicating whether the number is odd or even.
