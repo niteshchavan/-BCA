@@ -1,4 +1,4 @@
-### 1. Why PHP is known as scripting language
+## 1. Why PHP is known as scripting language
 
 PHP is known as a scripting language primarily because of the following reasons:
 
