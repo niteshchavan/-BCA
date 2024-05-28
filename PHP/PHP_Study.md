@@ -767,3 +767,30 @@ By understanding and using these parameters, you can effectively manage cookies 
 }
 ?>
 ```
+The `die()` function in PHP is used to display an error message and terminate the script execution if a certain condition is met. It's commonly used for basic error handling to gracefully handle situations where the script cannot continue due to an error.
+
+In the provided code snippet:
+
+```php
+<?php
+if (!file_exists("welcome.txt")) {
+    die("File not found");
+} else {
+    $file = fopen("welcom.txt", "r");
+}
+?>
+```
+
+Here's what happens:
+
+1. The `if` statement checks if the file "welcome.txt" does not exist using the `file_exists()` function.
+2. If the file does not exist, the `die()` function is called with the message "File not found". This terminates the script execution immediately, and the message is displayed to the user.
+3. If the file exists, the `else` block is executed. However, there is a typo in the filename passed to `fopen()`. It tries to open "welcom.txt" instead of "welcome.txt". This will result in an error if error reporting is enabled, but since it's not handled explicitly, it won't cause the script to terminate immediately.
+
+The output of the code will be:
+
+```
+File not found
+```
+
+This output is displayed because the `file_exists()` function returns false since "welcome.txt" does not exist. Therefore, the script execution is halted by the `die()` function, and the message "File not found" is displayed to the user. The `fopen()` function in the `else` block is not executed due to the script termination caused by `die()`.
