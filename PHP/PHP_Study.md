@@ -750,3 +750,20 @@ In this example:
 - The cookie is marked as HTTP-only (`true`), meaning it cannot be accessed via JavaScript.
 
 By understanding and using these parameters, you can effectively manage cookies in PHP to maintain user sessions and store user-specific information securely.
+
+<br><br>
+
+
+## 5. Explain Basic Error Handling die () function. What will be the output of following code? 
+'''
+<?php
+   if(!file_exists("welcome.txt"))
+{
+    die("File not found");
+}
+   Else
+{
+   $file=fopen("welcom.txt","r");
+}
+?>
+'''
