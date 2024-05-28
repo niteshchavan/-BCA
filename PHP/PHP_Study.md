@@ -866,3 +866,72 @@ Both interfaces and abstract classes are used in object-oriented programming to 
   - Use when you want to achieve multiple inheritance of type by allowing classes to implement multiple interfaces.
 
 In summary, abstract classes provide a way to share code among related classes, while interfaces define a contract for unrelated classes to adhere to. Both serve different purposes and can be used depending on the specific requirements of your application's design.
+
+<br><br>
+## 2. How to debug mysqli and how many methods are available for debugging.
+Debugging MySQLi (MySQL Improved) in PHP involves identifying and resolving errors or unexpected behavior in database operations. There are several methods available for debugging MySQLi:
+
+### 1. Error Reporting
+
+Enabling error reporting in PHP can provide valuable information about MySQLi errors. You can set the error reporting level to include notices, warnings, and errors related to MySQLi operations.
+
+```php
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+```
+
+### 2. Error Handling
+
+Use error handling techniques in PHP to catch and handle errors gracefully. You can use `try` and `catch` blocks to handle exceptions thrown by MySQLi functions.
+
+```php
+// Example of error handling with try-catch block
+try {
+    // MySQLi code that may throw an exception
+} catch (Exception $e) {
+    // Handle the exception
+    echo "Error: " . $e->getMessage();
+}
+```
+
+### 3. `mysqli_error()` Function
+
+The `mysqli_error()` function retrieves the last error message from the most recent MySQLi function call. This function can be useful for diagnosing errors in MySQLi queries.
+
+```php
+// Example of using mysqli_error() function
+if (!mysqli_query($conn, "SELECT * FROM non_existent_table")) {
+    echo "Error: " . mysqli_error($conn);
+}
+```
+
+### 4. `mysqli_stmt_error()` Function
+
+If you are using prepared statements with MySQLi, you can use the `mysqli_stmt_error()` function to retrieve the error message associated with the last prepared statement execution.
+
+```php
+// Example of using mysqli_stmt_error() function
+$stmt = mysqli_prepare($conn, "SELECT * FROM non_existent_table WHERE id = ?");
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+echo "Error: " . mysqli_stmt_error($stmt);
+```
+
+### 5. Logging
+
+Logging MySQLi errors to a file can be helpful for diagnosing issues, especially in production environments where displaying errors to users may not be desirable. You can use PHP's logging functions (`error_log()`, `fwrite()`, etc.) to log errors to a file.
+
+```php
+// Example of logging MySQLi errors to a file
+$error = "Error: " . mysqli_error($conn);
+error_log($error, 3, "error.log");
+```
+
+### 6. Debugging Tools
+
+Utilize MySQLi-specific debugging tools provided by IDEs or database management software. These tools often include features such as query profiling, execution plans, and error analysis to help identify performance bottlenecks and errors in MySQLi queries.
+
+### Summary
+
+Debugging MySQLi involves enabling error reporting, handling errors gracefully, and utilizing functions provided by MySQLi for error retrieval. By using a combination of error reporting, error handling, and logging techniques, you can effectively diagnose and resolve errors in MySQLi operations.
