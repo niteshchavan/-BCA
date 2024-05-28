@@ -755,7 +755,7 @@ By understanding and using these parameters, you can effectively manage cookies 
 
 
 ## 5. Explain Basic Error Handling die () function. What will be the output of following code? 
-'''
+```
 <?php
    if(!file_exists("welcome.txt"))
 {
@@ -766,4 +766,4 @@ By understanding and using these parameters, you can effectively manage cookies 
    $file=fopen("welcom.txt","r");
 }
 ?>
-'''
+```
