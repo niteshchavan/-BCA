@@ -794,3 +794,73 @@ File not found
 ```
 
 This output is displayed because the `file_exists()` function returns false since "welcome.txt" does not exist. Therefore, the script execution is halted by the `die()` function, and the message "File not found" is displayed to the user. The `fopen()` function in the `else` block is not executed due to the script termination caused by `die()`.
+
+<br><br>
+
+## 1.  What is difference between Interface and Abstract class?
+
+Both interfaces and abstract classes are used in object-oriented programming to define a contract for classes to implement certain methods or properties. However, there are some key differences between them:
+
+### Abstract Class:
+
+1. **Definition**:
+   - An abstract class is a class that cannot be instantiated on its own and may contain both abstract methods (methods without a body) and concrete methods (methods with a body).
+   
+2. **Implementation**:
+   - An abstract class can provide partial implementations for methods, allowing subclasses to override or extend them as needed.
+   
+3. **Extensibility**:
+   - A subclass can extend only one abstract class due to single inheritance in PHP.
+   
+4. **Example**:
+   ```php
+   abstract class Animal {
+       abstract public function makeSound();
+       
+       public function sleep() {
+           echo "Zzz...\n";
+       }
+   }
+   ```
+
+### Interface:
+
+1. **Definition**:
+   - An interface is a contract that defines a set of methods without specifying their implementation. It cannot contain any concrete methods, only method signatures.
+   
+2. **Implementation**:
+   - A class that implements an interface must provide implementations for all methods defined in the interface.
+   
+3. **Extensibility**:
+   - A class can implement multiple interfaces, allowing for multiple inheritance of type.
+   
+4. **Example**:
+   ```php
+   interface Shape {
+       public function area();
+       public function perimeter();
+   }
+   ```
+
+### Key Differences:
+
+1. **Instantiation**:
+   - Abstract classes cannot be instantiated directly, while interfaces cannot be instantiated at all. They are only used to define a contract for classes.
+   
+2. **Implementation**:
+   - Abstract classes can have both abstract and concrete methods with partial implementation, while interfaces can only have method signatures without implementation.
+   
+3. **Extensibility**:
+   - Subclasses can extend only one abstract class, but a class can implement multiple interfaces.
+
+### When to Use:
+
+- **Abstract Class**:
+  - Use when you need to provide a common base implementation for related classes.
+  - Use when you want to enforce that subclasses implement certain methods while providing some default behavior.
+
+- **Interface**:
+  - Use when you want to define a contract for unrelated classes to ensure they have certain methods in common.
+  - Use when you want to achieve multiple inheritance of type by allowing classes to implement multiple interfaces.
+
+In summary, abstract classes provide a way to share code among related classes, while interfaces define a contract for unrelated classes to adhere to. Both serve different purposes and can be used depending on the specific requirements of your application's design.
