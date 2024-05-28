@@ -660,3 +660,93 @@ if ($handle) {
    - `fclose($handle)`: Closes the file, ensuring that all data is written and resources are freed.
 
 By following this method, you can create and write to files in PHP efficiently. Proper error handling ensures that the file operations are performed safely.
+
+
+<br><br>
+
+## 4. Explain what cookies are. Explain how to set cookies in PHP with syntax.
+
+### Cookies in PHP
+
+Cookies are small pieces of data stored on the client-side (browser) and sent to the server with each subsequent request. They are used to remember information about the user, such as login status, preferences, and other session-related data. Cookies are an essential part of maintaining state in stateless HTTP protocol.
+
+### Setting Cookies in PHP
+
+In PHP, cookies are set using the `setcookie()` function. This function must be called before any output is sent to the browser (i.e., before any HTML, echo statements, or whitespace).
+
+#### Syntax:
+```php
+bool setcookie ( string $name [, string $value = "" [, int $expires = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
+```
+
+#### Parameters:
+1. **`name`**: The name of the cookie. This is the key used to access the cookie value.
+2. **`value`**: The value of the cookie. This is the data stored in the cookie.
+3. **`expires`**: The expiration time of the cookie. This is a Unix timestamp indicating when the cookie should expire. If set to 0, the cookie will expire at the end of the session (when the browser closes).
+4. **`path`**: The path on the server where the cookie is available. If set to '/', the cookie will be available within the entire domain.
+5. **`domain`**: The domain that the cookie is available to. If not specified, it defaults to the host portion of the current document location.
+6. **`secure`**: If true, the cookie will only be transmitted over secure HTTPS connections.
+7. **`httponly`**: If true, the cookie will only be accessible through the HTTP protocol and not by JavaScript, which helps prevent XSS attacks.
+
+### Example: Setting a Cookie
+
+Here’s a simple example of setting a cookie in PHP:
+
+```php
+<?php
+// Set a cookie named "user" with the value "John Doe" that expires in one hour
+setcookie("user", "John Doe", time() + 3600, "/");
+
+// Check if the cookie is set
+if(isset($_COOKIE["user"])) {
+    echo "Cookie 'user' is set!<br>";
+    echo "Value is: " . $_COOKIE["user"];
+} else {
+    echo "Cookie 'user' is not set!";
+}
+?>
+```
+
+### Explanation:
+
+1. **Set the Cookie**:
+   - `setcookie("user", "John Doe", time() + 3600, "/")`: Sets a cookie named "user" with the value "John Doe". The cookie will expire in one hour (`time() + 3600` seconds). The cookie is available within the entire domain (`"/"`).
+
+2. **Check if the Cookie is Set**:
+   - `isset($_COOKIE["user"])`: Checks if the "user" cookie is set.
+   - `$_COOKIE["user"]`: Retrieves the value of the "user" cookie.
+
+### Important Notes:
+
+- **Headers**: The `setcookie()` function must be called before any other output (HTML, echo statements, etc.) is sent to the browser.
+- **Expiration Time**: The expiration time is specified as a Unix timestamp. Use the `time()` function to get the current time and add the number of seconds for the desired expiration.
+- **Security**: Use the `secure` and `httponly` parameters to enhance the security of the cookies.
+- **Accessing Cookies**: Once a cookie is set, it can be accessed through the `$_COOKIE` superglobal array.
+
+### Example with Additional Parameters
+
+Here’s an example of setting a cookie with more parameters:
+
+```php
+<?php
+// Set a secure cookie named "session_id" with the value "abc123" that expires in one day, available only over HTTPS and not accessible via JavaScript
+setcookie("session_id", "abc123", time() + 86400, "/", "example.com", true, true);
+
+// Check if the cookie is set
+if(isset($_COOKIE["session_id"])) {
+    echo "Cookie 'session_id' is set!<br>";
+    echo "Value is: " . $_COOKIE["session_id"];
+} else {
+    echo "Cookie 'session_id' is not set!";
+}
+?>
+```
+
+In this example:
+- The cookie named "session_id" is set with a value of "abc123".
+- The cookie expires in one day (`time() + 86400` seconds).
+- The cookie is available within the entire domain (`"/"`) and specific to "example.com".
+- The cookie is marked as secure (`true`), meaning it will only be sent over HTTPS.
+- The cookie is marked as HTTP-only (`true`), meaning it cannot be accessed via JavaScript.
+
+By understanding and using these parameters, you can effectively manage cookies in PHP to maintain user sessions and store user-specific information securely.
