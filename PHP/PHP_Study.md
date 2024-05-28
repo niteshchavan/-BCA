@@ -1,3 +1,5 @@
+# Q1.  Solve any four sub-questions.
+
 ## 1. Why PHP is known as scripting language
 
 PHP is known as a scripting language primarily because of the following reasons:
@@ -402,7 +404,7 @@ Ensure the HTML file and PHP file are in the same directory or adjust the form a
 With this setup, when a user enters a number in the form and submits it, they will be redirected to the `check_number.php` page, where they will see a message indicating whether the number is odd or even.
 
 <br><br>
-
+# Q2.  Solve any four sub-questions.
 ## 1. How does one prevent the following Warning ‘Warning : Cannot modify header information - headers already sent’ and why does it occur in the first place?
 
 The "Warning: Cannot modify header information - headers already sent" warning in PHP occurs when you attempt to send HTTP headers (such as with `header()` or `setcookie()`) after output has already been sent to the browser. This can happen for several reasons:
@@ -796,7 +798,7 @@ File not found
 This output is displayed because the `file_exists()` function returns false since "welcome.txt" does not exist. Therefore, the script execution is halted by the `die()` function, and the message "File not found" is displayed to the user. The `fopen()` function in the `else` block is not executed due to the script termination caused by `die()`.
 
 <br><br>
-
+# Q.3 Solve any four sub-questions.
 ## 1.  What is difference between Interface and Abstract class?
 
 Both interfaces and abstract classes are used in object-oriented programming to define a contract for classes to implement certain methods or properties. However, there are some key differences between them:
