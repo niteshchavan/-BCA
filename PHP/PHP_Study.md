@@ -18,7 +18,7 @@ In summary, PHP is known as a scripting language because it is interpreted, serv
 
 <br/><br/>
 
-### 2. Explain difference between include and require.
+## 2. Explain difference between include and require.
 
 In PHP, `include` and `require` are both used to include and evaluate the specified file. However, there are important differences in how they handle errors and the flow of execution:
 
@@ -71,7 +71,7 @@ In the example above, if `header.php` is missing, a warning will be shown, but "
 
 <br><br>
 
-### 3. Explain different loops used in PHP in detail.
+## 3. Explain different loops used in PHP in detail.
 PHP provides several types of loops to perform repetitive tasks efficiently. Each type of loop is used in different scenarios based on the requirements. Here's a detailed explanation of the different loops available in PHP:
 
 ### 1. `while` Loop
@@ -132,7 +132,7 @@ for ($i = 0; $i < 5; $i++) {
 }
 ```
 
-### 4. `foreach` Loop
+## 4. `foreach` Loop
 
 The `foreach` loop is specifically designed for iterating over arrays. It is a convenient way to access each element in an array without needing to manage the array's length or index manually.
 
@@ -192,7 +192,7 @@ foreach ($age as $name => $age) {
 Understanding these loops and when to use them is crucial for efficient and readable PHP programming. Each loop serves a particular purpose and selecting the appropriate one can significantly affect the clarity and performance of your code.
 
 <br><br>
-###  3. How can we create links in PHP pages?
+##  3. How can we create links in PHP pages?
 
 Creating links in PHP pages is straightforward and involves embedding HTML anchor (`<a>`) tags within your PHP code. The HTML anchor tag is used to create hyperlinks that navigate to other pages or resources. Here are several methods to create links in PHP:
 
@@ -317,7 +317,7 @@ Creating links in PHP pages is essentially about embedding HTML anchor tags with
 These methods allow you to create flexible and dynamic navigation options in your PHP applications.
 
 <br><br>
-### 5.  Create HTML form to enter one number. Write PHP code to display the message about number is odd or even.
+## 5.  Create HTML form to enter one number. Write PHP code to display the message about number is odd or even.
 
 Creating an HTML form to enter a number and then writing PHP code to determine whether the number is odd or even involves two main parts: the HTML form and the PHP script to process the form data.
 
@@ -403,7 +403,7 @@ With this setup, when a user enters a number in the form and submits it, they wi
 
 <br><br>
 
-### a) How does one prevent the following Warning ‘Warning : Cannot modify header information - headers already sent’ and why does it occur in the first place?
+## a) How does one prevent the following Warning ‘Warning : Cannot modify header information - headers already sent’ and why does it occur in the first place?
 
 The "Warning: Cannot modify header information - headers already sent" warning in PHP occurs when you attempt to send HTTP headers (such as with `header()` or `setcookie()`) after output has already been sent to the browser. This can happen for several reasons:
 
