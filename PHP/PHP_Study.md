@@ -403,7 +403,7 @@ With this setup, when a user enters a number in the form and submits it, they wi
 
 <br><br>
 
-## a) How does one prevent the following Warning ‘Warning : Cannot modify header information - headers already sent’ and why does it occur in the first place?
+## 1. How does one prevent the following Warning ‘Warning : Cannot modify header information - headers already sent’ and why does it occur in the first place?
 
 The "Warning: Cannot modify header information - headers already sent" warning in PHP occurs when you attempt to send HTTP headers (such as with `header()` or `setcookie()`) after output has already been sent to the browser. This can happen for several reasons:
 
