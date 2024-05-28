@@ -192,7 +192,7 @@ foreach ($age as $name => $age) {
 Understanding these loops and when to use them is crucial for efficient and readable PHP programming. Each loop serves a particular purpose and selecting the appropriate one can significantly affect the clarity and performance of your code.
 
 <br><br>
-##  3. How can we create links in PHP pages?
+##  4. How can we create links in PHP pages?
 
 Creating links in PHP pages is straightforward and involves embedding HTML anchor (`<a>`) tags within your PHP code. The HTML anchor tag is used to create hyperlinks that navigate to other pages or resources. Here are several methods to create links in PHP:
 
